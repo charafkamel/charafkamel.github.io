@@ -53,6 +53,27 @@
     background: linear-gradient(135deg, var(--brand), var(--accent));
     box-shadow: 0 10px 30px #00000040, inset 0 0 30px #ffffff22;
   }
+  .hero {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), transparent);
+  padding: 20px 0 30px;
+  border-bottom: 1px solid #ffffff14;
+  text-align: center;
+}
+.hero-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+.hero-title {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+.hero-sub {
+  font-size: 16px;
+  margin: 4px 0 0;
+  color: var(--text);
+}
   .branding h1{
     margin:0; font-weight:700; letter-spacing:.3px;
   }
@@ -184,7 +205,13 @@
     </div>
   </div>
 </header>
-
+<section class="hero">
+  <div class="wrap">
+    <h2 class="hero-name">Kamel Charaf</h2>
+    <p class="hero-title">Master’s Student in Data Science – EPFL</p>
+    <p class="hero-sub">EPFL Courses Taken & Academic Projects</p>
+  </div>
+</section>
 <main class="wrap">
   <section id="cards" class="grid">
 
