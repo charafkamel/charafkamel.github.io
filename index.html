@@ -1,448 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Classes & Projects</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
-  header {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  .branding h1 {
-    margin: 0;
-    font-size: 2em;
-  }
-  .controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .chip {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .chip[data-active="true"] {
-    background-color: #ddd;
-  }
-  .search {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #fff;
-  }
-  .search input {
-    border: none;
-    outline: none;
-    flex: 1;
-  }
-  .hero {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #f8f8f8;
-  }
-  .hero-name {
-    font-size: 2.5em;
-    margin: 0;
-  }
-  .hero-title {
-    font-size: 1.2em;
-    color: #666;
-    margin: 10px 0;
-  }
-  .hero-sub {
-    font-size: 1em;
-    color: #666;
-  }
-  main {
-    padding: 20px 0;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    background-color: #fff;
-  }
-  .card h2 {
-    margin-top: 0;
-  }
-  .badge {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #eee;
-    border-radius: 5px;
-    font-size: 0.8em;
-  }
-  .list {
-    margin-top: 15px;
-  }
-  .item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid #eee;
-    margin-bottom: 10px;
-    background-color: #fafafa;
-  }
-  .item h3 {
-    margin: 0;
-  }
-  .actions {
-    margin-top: 10px;
-  }
-  .btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  .muted {
-    color: #666;
-    font-size: 0.9em;
-  }
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
-  }
-  .empty {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-  }
-  .empty[data-show="true"] {
-    display: block;
-  }
-  .empty[data-show="false"] {
-    display: none;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamel Charaf - Data Science Student</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="branding">
-      <div>
-        <h1>My Classes & Projects</h1>
-        <div class="muted">A tidy showcase of Semester 1 & 2 coursework</div>
-      </div>
-    </div>
-
-    <div class="controls">
-      <div class="chip" data-semester="all" data-active="true" role="button" aria-pressed="true">All Semesters</div>
-      <div class="chip" data-semester="1" role="button" aria-pressed="false">Semester 1</div>
-      <div class="chip" data-semester="2" role="button" aria-pressed="false">Semester 2</div>
-
-      <label class="search" aria-label="Search projects">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <input id="search" type="search" placeholder="Search class or project…" />
-      </label>
-    </div>
-  </div>
-</header>
-<section class="hero">
-  <div class="wrap">
-    <h2 class="hero-name">Kamel Charaf</h2>
-    <p class="hero-title">Master’s Student in Data Science – EPFL</p>
-    <p class="hero-sub">EPFL Courses Taken & Academic Projects</p>
-  </div>
-</section>
-<main class="wrap">
-  <section id="cards" class="grid">
-
-    <!-- Distributed Information Systems — S1 -->
-    <article class="card" data-sem="1" data-title="distributed information systems">
-      <div class="badge">Semester 1</div>
-      <h2>Distributed Information Systems</h2>
-      <div class="muted">Coursework & projects</div>
-      <div class="list">
-        <div class="item" data-title="information retrieval system">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-            <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <h3>Project 1: Information Retrieval System</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_1/Distributed_Information_System/project_1_Information_Retrieval/Information_Retrieval_final.pdf" target="_blank" rel="noopener">
-                <!-- download icon -->
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Kamel Charaf</a>
             </div>
-          </div>
-        </div>
-
-        <div class="item" data-title="recommendation system">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3l3 6 6 .9-4.5 4.3L17.5 21 12 17.8 6.5 21l1-6.8L3 9.9 9 9l3-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-          <div>
-            <h3>Project 2: Recommendation System</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_1/Distributed_Information_System/project_2_RS/Recommendation_System_final.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cv.html" class="nav-link">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-          </div>
         </div>
-      </div>
-    </article>
+    </nav>
 
-    <!-- Machine Learning — S1 -->
-    <article class="card" data-sem="1" data-title="machine learning">
-      <div class="badge">Semester 1</div>
-      <h2>Machine Learning</h2>
-      <div class="muted">Coursework & projects</div>
-      <div class="list">
-        <div class="item" data-title="michd detection">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 17c3-6 13-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-          </svg>
-          <div>
-            <h3>Project 1: MICHD Detection</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_1/Machine_Learning/project_1_michd_detection/MICHD_Detecting_final.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Floating Geometric Shapes -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">Kamel Charaf</h1>
+                    <p class="hero-title">Data Science Researcher</p>
+                    <p class="hero-description">
+                        Passionate about transforming complex data into actionable insights through 
+                        machine learning and artificial intelligence. Currently pursuing advanced 
+                        research in natural language processing at EPFL.
+                    </p>
+                    
+                    <div class="hero-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">Lausanne, Switzerland</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Specialization</span>
+                            <span class="detail-value">Machine Learning & NLP</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value available">Open to opportunities</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="cv.html" class="btn btn-primary">View CV</a>
+                        <a href="#contact" class="btn btn-secondary">Contact</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="item" data-title="evaluating llms">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/>
-            <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <h3>Project 2: Evaluating LLMs</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_1/Machine_Learning/project_2_LLM_testing/Evaluating_LLMs_final.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        I am a dedicated Data Science researcher with over 3 years of experience in 
+                        developing intelligent systems that solve real-world challenges. My work 
+                        focuses on the intersection of machine learning, natural language processing, 
+                        and artificial intelligence.
+                    </p>
+                    <p>
+                        Currently pursuing advanced studies at EPFL, I have contributed to multiple 
+                        research publications and delivered end-to-end machine learning solutions 
+                        across various domains.
+                    </p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Research Publications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+                
+                <div class="about-skills">
+                    <h3>Core Competencies</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Natural Language Processing</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Research</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </article>
+    </section>
 
-    <!-- Understanding Modern Switzerland I — S1 -->
-    <article class="card" data-sem="1" data-title="understanding modern switzerland i">
-      <div class="badge">Semester 1</div>
-      <h2>Understanding Modern Switzerland I</h2>
-      <div class="muted">Coursework & projects</div>
-      <div class="list">
-        <div class="item" data-title="evolution and adaptations of the swiss banking system">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M3 10l9-6 9 6v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="2"/>
-            <path d="M7 18v-6h10v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <h3>Project: Evolution & Adaptations of the Swiss Banking System</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_1/Understanding_Modern_Switzerland_I/Evaluation_and_Adaption_of_the_Swiss_Banking_System.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Academic Projects</h2>
+
+            <!-- Academic Tree Structure -->
+            <div class="academic-tree">
+                <!-- University Root -->
+                <div class="university-node">
+                    <div class="university-header">
+                        <div class="university-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="university-info">
+                            <h3>École Polytechnique Fédérale de Lausanne (EPFL)</h3>
+                            <p>Master's in Data Science</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Semester 1 Branch -->
+                    <div class="semester-branch" data-semester="1">
+                        <div class="semester-header">
+                            <div class="semester-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="semester-info">
+                                <h4>Semester 1</h4>
+                                <span class="semester-period">2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="semester-content">
+                            <!-- Course 1: Distributed Information Systems -->
+                            <div class="course-node" data-title="distributed information systems">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Distributed Information Systems</h5>
+                                        <span class="course-type">Core Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="information retrieval">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Information Retrieval System</h6>
+                                                <p>Developed a comprehensive system for efficient information retrieval and ranking using advanced algorithms.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-code"></i>
+                                                        Research Project
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_1/Distributed_Information_System/project_1_Information_Retrieval/Information_Retrieval_final.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-node" data-title="recommendation system">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Recommendation System</h6>
+                                                <p>Built a sophisticated recommendation engine using collaborative filtering and matrix factorization techniques.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-chart-line"></i>
+                                                        Implementation Project
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_1/Distributed_Information_System/project_2_RS/Recommendation_System_final.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Course 2: Machine Learning -->
+                            <div class="course-node" data-title="machine learning">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Machine Learning</h5>
+                                        <span class="course-type">Core Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="michd detection">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>MICHD Detection</h6>
+                                                <p>Implemented machine learning algorithms for medical condition detection and analysis using clinical data.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-heartbeat"></i>
+                                                        Healthcare ML
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_1/Machine_Learning/project_1_michd_detection/MICHD_Detecting_final.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-node" data-title="evaluating llms">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Evaluating Large Language Models</h6>
+                                                <p>Comprehensive evaluation and testing framework for large language models performance assessment.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-brain"></i>
+                                                        NLP Research
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_1/Machine_Learning/project_2_LLM_testing/Evaluating_LLMs_final.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Course 3: Understanding Modern Switzerland I -->
+                            <div class="course-node" data-title="understanding modern switzerland">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Understanding Modern Switzerland I</h5>
+                                        <span class="course-type">Elective Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="swiss banking system">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Evolution & Adaptations of the Swiss Banking System</h6>
+                                                <p>In-depth analysis of the historical evolution and modern adaptations of Switzerland's banking sector.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-chart-bar"></i>
+                                                        Economic Analysis
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_1/Understanding_Modern_Switzerland_I/Evaluation_and_Adaption_of_the_Swiss_Banking_System.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Semester 2 Branch -->
+                    <div class="semester-branch" data-semester="2">
+                        <div class="semester-header">
+                            <div class="semester-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="semester-info">
+                                <h4>Semester 2</h4>
+                                <span class="semester-period">2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="semester-content">
+                            <!-- Course 1: Deep Learning -->
+                            <div class="course-node" data-title="deep learning">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Deep Learning</h5>
+                                        <span class="course-type">Core Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="text detoxification">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Text Detoxification Using Fine-tuned Encoder-Decoder Models</h6>
+                                                <p>Advanced text detoxification system using transformer-based encoder-decoder architectures with fine-tuning.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-shield-alt"></i>
+                                                        NLP Safety
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_2/Deep_Learning/Final_Project/Detoxtext_Final.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Course 2: Modern Natural Language Processing -->
+                            <div class="course-node" data-title="natural language processing">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Modern Natural Language Processing</h5>
+                                        <span class="course-type">Core Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="mcqa pipeline">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Towards Efficient and Accurate MCQA: A Modular Training Pipeline for Compact LLMs</h6>
+                                                <p>Developed a modular training pipeline for compact language models focused on multiple-choice question answering.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-puzzle-piece"></i>
+                                                        Model Optimization
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_2/Modern_Natural_Language_Processing/Final_Project/MNLP_M3_Final_Report.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Course 3: Understanding Modern Switzerland II -->
+                            <div class="course-node" data-title="understanding modern switzerland ii">
+                                <div class="course-header">
+                                    <div class="course-toggle">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <div class="course-info">
+                                        <h5>Understanding Modern Switzerland II</h5>
+                                        <span class="course-type">Elective Course</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-projects">
+                                    <div class="project-node" data-title="housing crisis">
+                                        <div class="project-info">
+                                            <div class="project-details">
+                                                <h6>Housing Crisis in Switzerland</h6>
+                                                <p>Comprehensive study of the housing crisis in Switzerland, analyzing causes and potential policy solutions.</p>
+                                                <div class="project-meta">
+                                                    <span class="project-type">
+                                                        <i class="fas fa-home"></i>
+                                                        Policy Analysis
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="classes/Semester_2/Understanding_Modern_Switzerland_II/UMS_II_report.pdf" 
+                                                   class="project-link" target="_blank">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                    View PDF
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </article>
+    </section>
 
-    <!-- -------- SEMESTER 2 (same classes & PDFs under Semester_2 paths) -------- -->
-
-    <!-- Deep Learning — S2 -->
-    <article class="card" data-sem="2" data-title="deep learning">
-      <div class="badge">Semester 2</div>
-      <h2>Deep Learning</h2>
-      <div class="muted">Projects</div>
-      <div class="list">
-        <div class="item" data-title="detoxifying text">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-            <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <h3>Project: Text Detoxification Using Finetuned Encoder-Decoder Models</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_2/Deep_Learning/Final_Project/Detoxtext_Final.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kamel.charaf@epfl.ch</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/kamelcharaf</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/charafkamel</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Lausanne, Switzerland</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </article>
+    </section>
 
-    <!-- Modern Natural Language Processing — S2 -->
-    <article class="card" data-sem="2" data-title="modern natural language processing">
-      <div class="badge">Semester 2</div>
-      <h2>Modern Natural Language Processing</h2>
-      <div class="muted">Projects</div>
-      <div class="list">
-        <div class="item" data-title="Towards Efficient and Accurate MCQA: A Modular Training Pipeline for Compact LLMs">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 17c3-6 13-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-          </svg>
-          <div>
-            <h3>Project: Towards Efficient and Accurate MCQA: A Modular Training Pipeline for Compact LLMs</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_2/Modern_Natural_Language_Processing/Final_Project/MNLP_M3_Final_Report.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year"></span> Kamel Charaf. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-          </div>
         </div>
+    </footer>
 
-      </div>
-    </article>
-
-    <!-- Understanding Modern Switzerland II — S2 -->
-    <article class="card" data-sem="2" data-title="understanding modern switzerland ii">
-      <div class="badge">Semester 2</div>
-      <h2>Understanding Modern Switzerland II</h2>
-      <div class="muted">Projects</div>
-      <div class="list">
-        <div class="item" data-title="housing crisis in switzerland">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M3 10l9-6 9 6v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="2"/>
-            <path d="M7 18v-6h10v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <h3>Project:  Housing Crisis in Switzerland</h3>
-            <div class="actions">
-              <a class="btn" href="classes/Semester_2/Understanding_Modern_Switzerland_II/UMS_II_report.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Download PDF
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <div id="empty" class="empty" aria-live="polite">No results found. Try a different search.</div>
-</main>
-
-<footer>
-  <div class="wrap muted">
-    © <span id="year"></span> • Coursework portfolio
-  </div>
-</footer>
-
-<script>
-  // Semester filter
-  const chips = document.querySelectorAll('.chip');
-  const cards = document.querySelectorAll('.card');
-  function setActive(target){
-    chips.forEach(c=>{ c.dataset.active = (c===target) ? 'true' : 'false'; c.setAttribute('aria-pressed', c.dataset.active); });
-  }
-  function filterSemester(sem){
-    cards.forEach(card=>{
-      const s = card.getAttribute('data-sem');
-      const show = (sem==='all') || (s===sem);
-      card.style.display = show ? '' : 'none';
-    });
-    checkEmpty();
-  }
-  chips.forEach(chip=>{
-    chip.addEventListener('click', ()=>{ setActive(chip); filterSemester(chip.dataset.semester); });
-  });
-
-  // Search (title + item titles)
-  const search = document.getElementById('search');
-  function checkEmpty(){
-    const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
-    document.getElementById('empty').dataset.show = anyVisible ? 'false' : 'true';
-  }
-  function runSearch(){
-    const q = search.value.trim().toLowerCase();
-    cards.forEach(card=>{
-      // initial vis from semester
-      const semHidden = card.style.display==='none';
-      if (semHidden){ return; }
-      const title = card.dataset.title;
-      const items = card.querySelectorAll('.item');
-      const matchCard = title.includes(q);
-      let anyItem = false;
-      items.forEach(it=>{
-        const m = it.dataset.title.includes(q) || matchCard || q==='';
-        it.style.display = m ? '' : 'none';
-        if (m) anyItem = true;
-      });
-      card.style.display = (matchCard || anyItem || q==='') ? '' : 'none';
-    });
-    checkEmpty();
-  }
-  search.addEventListener('input', runSearch);
-
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Initialize state
-  filterSemester('all');
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Classes & Projects</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .branding h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .chip[data-active="true"] {
+    background-color: #ddd;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  .search input {
+    border: none;
+    outline: none;
+    flex: 1;
+  }
+  .hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+  }
+  .hero-name {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  .hero-title {
+    font-size: 1.2em;
+    color: #666;
+    margin: 10px 0;
+  }
+  .hero-sub {
+    font-size: 1em;
+    color: #666;
+  }
+  main {
+    padding: 20px 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+  }
+  .card h2 {
+    margin-top: 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    font-size: 0.8em;
+  }
+  .list {
+    margin-top: 15px;
+  }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+  }
+  .item h3 {
+    margin: 0;
+  }
+  .actions {
+    margin-top: 10px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  .muted {
+    color: #666;
+    font-size: 0.9em;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+  }
+  .empty {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+  }
+  .empty[data-show="true"] {
+    display: block;
+  }
+  .empty[data-show="false"] {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="branding">
+      <div>
+        <h1>My Classes & Projects</h1>
+        <div class="muted">A tidy showcase of Semester 1 & 2 coursework</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="chip" data-semester="all" data-active="true" role="button" aria-pressed="true">All Semesters</div>
+      <div class="chip" data-semester="1" role="button" aria-pressed="false">Semester 1</div>
+      <div class="chip" data-semester="2" role="button" aria-pressed="false">Semester 2</div>
+
+      <label class="search" aria-label="Search projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="search" type="search" placeholder="Search class or project…" />
+      </label>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <h2 class="hero-name">Kamel Charaf</h2>
+    <p class="hero-title">Master’s Student in Data Science – EPFL</p>
+    <p class="hero-sub">EPFL Courses Taken & Academic Projects</p>
+  </div>
+</section>
+<main class="wrap">
+  <section id="cards" class="grid">
+
+    <!-- Distributed Information Systems — S1 -->
+    <article class="card" data-sem="1" data-title="distributed information systems">
+      <div class="badge">Semester 1</div>
+      <h2>Distributed Information Systems</h2>
+      <div class="muted">Coursework & projects</div>
+      <div class="list">
+        <div class="item" data-title="information retrieval system">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3>Project 1: Information Retrieval System</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_1/Distributed_Information_System/project_1_Information_Retrieval/Information_Retrieval_final.pdf" target="_blank" rel="noopener">
+                <!-- download icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-title="recommendation system">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l3 6 6 .9-4.5 4.3L17.5 21 12 17.8 6.5 21l1-6.8L3 9.9 9 9l3-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h3>Project 2: Recommendation System</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_1/Distributed_Information_System/project_2_RS/Recommendation_System_final.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Machine Learning — S1 -->
+    <article class="card" data-sem="1" data-title="machine learning">
+      <div class="badge">Semester 1</div>
+      <h2>Machine Learning</h2>
+      <div class="muted">Coursework & projects</div>
+      <div class="list">
+        <div class="item" data-title="michd detection">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 17c3-6 13-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div>
+            <h3>Project 1: MICHD Detection</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_1/Machine_Learning/project_1_michd_detection/MICHD_Detecting_final.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" data-title="evaluating llms">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3>Project 2: Evaluating LLMs</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_1/Machine_Learning/project_2_LLM_testing/Evaluating_LLMs_final.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Understanding Modern Switzerland I — S1 -->
+    <article class="card" data-sem="1" data-title="understanding modern switzerland i">
+      <div class="badge">Semester 1</div>
+      <h2>Understanding Modern Switzerland I</h2>
+      <div class="muted">Coursework & projects</div>
+      <div class="list">
+        <div class="item" data-title="evolution and adaptations of the swiss banking system">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 10l9-6 9 6v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 18v-6h10v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3>Project: Evolution & Adaptations of the Swiss Banking System</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_1/Understanding_Modern_Switzerland_I/Evaluation_and_Adaption_of_the_Swiss_Banking_System.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- -------- SEMESTER 2 (same classes & PDFs under Semester_2 paths) -------- -->
+
+    <!-- Deep Learning — S2 -->
+    <article class="card" data-sem="2" data-title="deep learning">
+      <div class="badge">Semester 2</div>
+      <h2>Deep Learning</h2>
+      <div class="muted">Projects</div>
+      <div class="list">
+        <div class="item" data-title="detoxifying text">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3>Project: Text Detoxification Using Finetuned Encoder-Decoder Models</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_2/Deep_Learning/Final_Project/Detoxtext_Final.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Modern Natural Language Processing — S2 -->
+    <article class="card" data-sem="2" data-title="modern natural language processing">
+      <div class="badge">Semester 2</div>
+      <h2>Modern Natural Language Processing</h2>
+      <div class="muted">Projects</div>
+      <div class="list">
+        <div class="item" data-title="Towards Efficient and Accurate MCQA: A Modular Training Pipeline for Compact LLMs">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 17c3-6 13-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div>
+            <h3>Project: Towards Efficient and Accurate MCQA: A Modular Training Pipeline for Compact LLMs</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_2/Modern_Natural_Language_Processing/Final_Project/MNLP_M3_Final_Report.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Understanding Modern Switzerland II — S2 -->
+    <article class="card" data-sem="2" data-title="understanding modern switzerland ii">
+      <div class="badge">Semester 2</div>
+      <h2>Understanding Modern Switzerland II</h2>
+      <div class="muted">Projects</div>
+      <div class="list">
+        <div class="item" data-title="housing crisis in switzerland">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 10l9-6 9 6v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 18v-6h10v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3>Project:  Housing Crisis in Switzerland</h3>
+            <div class="actions">
+              <a class="btn" href="classes/Semester_2/Understanding_Modern_Switzerland_II/UMS_II_report.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <div id="empty" class="empty" aria-live="polite">No results found. Try a different search.</div>
+</main>
+
+<footer>
+  <div class="wrap muted">
+    © <span id="year"></span> • Coursework portfolio
+  </div>
+</footer>
+
+<script>
+  // Semester filter
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('.card');
+  function setActive(target){
+    chips.forEach(c=>{ c.dataset.active = (c===target) ? 'true' : 'false'; c.setAttribute('aria-pressed', c.dataset.active); });
+  }
+  function filterSemester(sem){
+    cards.forEach(card=>{
+      const s = card.getAttribute('data-sem');
+      const show = (sem==='all') || (s===sem);
+      card.style.display = show ? '' : 'none';
+    });
+    checkEmpty();
+  }
+  chips.forEach(chip=>{
+    chip.addEventListener('click', ()=>{ setActive(chip); filterSemester(chip.dataset.semester); });
+  });
+
+  // Search (title + item titles)
+  const search = document.getElementById('search');
+  function checkEmpty(){
+    const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
+    document.getElementById('empty').dataset.show = anyVisible ? 'false' : 'true';
+  }
+  function runSearch(){
+    const q = search.value.trim().toLowerCase();
+    cards.forEach(card=>{
+      // initial vis from semester
+      const semHidden = card.style.display==='none';
+      if (semHidden){ return; }
+      const title = card.dataset.title;
+      const items = card.querySelectorAll('.item');
+      const matchCard = title.includes(q);
+      let anyItem = false;
+      items.forEach(it=>{
+        const m = it.dataset.title.includes(q) || matchCard || q==='';
+        it.style.display = m ? '' : 'none';
+        if (m) anyItem = true;
+      });
+      card.style.display = (matchCard || anyItem || q==='') ? '' : 'none';
+    });
+    checkEmpty();
+  }
+  search.addEventListener('input', runSearch);
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Initialize state
+  filterSemester('all');
+</script>
+</body>
+</html>
